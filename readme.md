@@ -16,4 +16,5 @@ If you find the project useful, please consider supporting, or contributing.
 |`gitid`|[source](./scripts/gitid)|Change the commit identity of the current git repository|
 |`sink`|[source](./scripts/sink)|Kill all currently running docker containers|
 |`sshkey`|[source](./scripts/sshkey)|An utility that prints the piblic ssh key of the current user or the specified user|
+|`snek`|[source](./scripts/snek)|Activate given python version as the python command|
 |`venv`|[source](./scripts/venv)|Initialize a python virtual environment and install packages|

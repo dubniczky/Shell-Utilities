@@ -1,0 +1,24 @@
+#!/bin/bash
+
+# https://github.com/dubniczky/Shell-Utilities
+# Activate given python version as the python command
+
+# Verify parameter count
+if [ "$#" -ne 1 ]; then
+    echo "Activate given python version"
+    echo "Usage: snek [version]"
+    echo "   version: The major and minor version numbers of python to activate"
+    echo "Example: snek 3.10"
+    echo "Current version: $(python -V)"
+    exit 1
+fi
+
+# Locate binary
+BIN_LOC="$(command -v python$1)"
+if [ -z $BIN_LOC ]; then
+    echo "python$1 binary not found."
+    exit 1
+fi
+
+# Overwrite soft link
+ln -sf $BIN_LOC /usr/local/bin/python
