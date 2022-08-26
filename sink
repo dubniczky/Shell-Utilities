@@ -1,0 +1,13 @@
+#!/bin/bash
+
+# https://github.com/dubniczky/Shell-Utilities
+# Kill all currently running docker containers
+
+CONTAINER_IDS=$(docker ps -q)
+
+if [ -z "$IDS" ]; then
+    echo "No containers running."
+else
+    echo "Stopped containers:"
+    docker kill $IDS
+fi
