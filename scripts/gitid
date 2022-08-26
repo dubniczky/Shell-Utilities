@@ -1,0 +1,13 @@
+#!/bin/bash
+
+# https://github.com/dubniczky/Shell-Utilities
+# Change the commit identity of the current git repository
+
+# Verify parameter count
+if [ "$#" -ne 2 ]; then
+    echo "Usage: gitid [email] [name]"
+    exit 1
+fi
+
+git config user.email "$2"
+git config user.name "$1"
