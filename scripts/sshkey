@@ -22,5 +22,5 @@ fi
 if [ -f $KEY_FILE ]; then
     cat ~/$KEY_LOC
 else
-    echo "No ssh key exists for user: $USERNAME" 
+    echo "No ssh key exists for user: $USERNAME"
 fi
