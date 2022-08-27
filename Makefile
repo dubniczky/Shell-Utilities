@@ -8,5 +8,6 @@ enable::
 
 # Install scripts to local binaries folder
 install::
+	@$(MAKE) -s enable
 	@cp -f scripts/* $(install_target)
 	@echo "Installed $(shell ls scripts | wc -l | xargs echo) scripts to $(install_target)"
