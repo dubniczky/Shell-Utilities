@@ -3,46 +3,92 @@
 # https://github.com/dubniczky/Shell-Utilities
 # Clean up common temporary files and folders in the current directory
 
+ITEMS=(
+# General
+logs
+*.log
+out
+.temp
+*.cache
+dist
+build
+*.tmp
+*.tmp.*
+*.~*
+coverage
+.coverage
+*.sqlite*
 
-# Remove directories and files
-REMOVED_ITEMS=$( xargs rm -rfv <<DIRS!
+# Nodejs
 node_modules
+report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
+.grunt
+bower_components
+jspm_packages
+*.tsbuildinfo
+.npm
+.eslintcache
+*.tgz
+.yarn-integrity
+.next
+.nuxt
+*.sass-cache
+.yarn/cache
+.yarn/unplugged
+.yarn/build-state.yml
+.yarn/install-state.gz
+.pnp.*
+
+# Python
 __pycache__
 .pytest_cache
 .venv
+.Python
+*.py[cod]
+*.egg-info
+*.egg
+*.ipynb_checkpoints
+develop-eggs
+eggs
+MANIFEST
+*.manifest
+pip-log.txt
+pip-delete-this-directory.txt
+.pybuilder
+ipython_config.py
+__pypackages__
+*.sage.py
+.pyre
+.pytype
+
+# C/C++/C#
 [Bb]uild
 [Dd]ebug
 obj
 bin
-dist
-packages
-vendor
-coverage
-*.egg-info
-*.egg
-
-.DS_Store
-*.log
-*.py[cod]
+lib
+lib64
 *.out
 *.o
 *.so
-*.ipynb_checkpoints
 *.i
 *.ii
-*.tmp
-*.tmp.*
-*.temp
-*.~*
-*.sass-cache
-*.cache
 
-DIRS! )
+packages
+vendor
+
+# OS Specific
+.DS_Store
+)
+
+# Remove items
+REMOVED_ITEMS=$(rm -rfv ${ITEMS[@]} 2> /dev/null)
+#echo $REMOVED_ITEMS
 
 # Count removed items
 REMOVED_COUNT="0"
-if [ ! -z "$REMOVED_DIRS" ]; then
-    REMOVED_COUNT = $(echo "$REMOVED_DIRS" | wc -l | xargs echo)
+if [ ! -z "$REMOVED_ITEMS" ]; then
+    REMOVED_COUNT=$(echo "$REMOVED_ITEMS" | wc -l | xargs echo)
 fi
 
 # Print summary
