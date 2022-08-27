@@ -5,9 +5,9 @@
 
 CONTAINER_IDS=$(docker ps -q)
 
-if [ -z "$IDS" ]; then
+if [ -z "$CONTAINER_IDS" ]; then
     echo "No containers running."
 else
-    echo "Stopped containers:"
-    docker kill $IDS
+    docker kill $CONTAINER_IDS > /dev/null
+    echo "Stopped $(echo "$CONTAINER_IDS" | wc -l | xargs echo) containers."
 fi
