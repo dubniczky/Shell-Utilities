@@ -16,6 +16,28 @@ Install the scripts with this one-liner command.
 curl -fsSL https://raw.githubusercontent.com/dubniczky/Shell-Utilities/main/setup.sh | sh -
 ```
 
+Or manually
+
+1. Clone repository
+
+```bash
+git clone https://github.com/dubniczky/Shell-Utilities
+```
+
+2. Move to repository
+
+```
+cd Shell-Utilities
+```
+
+3. Run the installer
+
+```
+make install
+or
+chmod +x install.sh && ./install.sh
+```
+
 ## Commands
 
 |Command|Script|Description|
