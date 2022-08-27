@@ -1,0 +1,49 @@
+#!/bin/bash
+
+# https://github.com/dubniczky/Shell-Utilities
+# Clean up common temporary files and folders in the current directory
+
+
+# Remove directories and files
+REMOVED_ITEMS=$( xargs rm -rfv <<DIRS!
+node_modules
+__pycache__
+.pytest_cache
+.venv
+[Bb]uild
+[Dd]ebug
+obj
+bin
+dist
+packages
+vendor
+coverage
+*.egg-info
+*.egg
+
+.DS_Store
+*.log
+*.py[cod]
+*.out
+*.o
+*.so
+*.ipynb_checkpoints
+*.i
+*.ii
+*.tmp
+*.tmp.*
+*.temp
+*.~*
+*.sass-cache
+*.cache
+
+DIRS! )
+
+# Count removed items
+REMOVED_COUNT="0"
+if [ ! -z "$REMOVED_DIRS" ]; then
+    REMOVED_COUNT = $(echo "$REMOVED_DIRS" | wc -l | xargs echo)
+fi
+
+# Print summary
+echo "Removed $REMOVED_COUNT items."
