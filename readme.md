@@ -8,6 +8,14 @@ If you find the project useful, please consider supporting, or contributing.
 
 [!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://www.buymeacoffee.com/dubniczky)
 
+## Install
+
+Install the scripts with this one-liner command.
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/dubniczky/Shell-Utilities/main/setup.sh | sh -
+```
+
 ## Commands
 
 |Command|Script|Description|
