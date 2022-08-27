@@ -3,14 +3,22 @@
 # https://github.com/dubniczky/Shell-Utilities
 # Activate given python version as the python command
 
-# Verify parameter count
-if [ "$#" -ne 1 ]; then
-    echo "Activate given python version"
-    echo "Usage: snek [version]"
+
+# Check for help
+if [ "$1" = "-h" ] || [ "$1" = "--help" ]; then
+    echo "Activate given python version as the python command, or show currently active version"
+    echo "Usage: snek [version?]"
     echo "   version: The major and minor version numbers of python to activate"
-    echo "Example: snek 3.10"
-    echo "Current version: $(python -V)"
-    exit 1
+    echo "Examples:"
+    echo "   snek - show current version"
+    echo "   snek 3.10 - switch to 3.10 if installed"
+    exit 0
+fi
+
+# Check for display or update mode
+if [ "$#" -ne 1 ]; then
+    echo "$(python -V  | sed -e "s/^Python //")"
+    exit 0
 fi
 
 # Locate binary
