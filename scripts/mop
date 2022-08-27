@@ -3,6 +3,7 @@
 # https://github.com/dubniczky/Shell-Utilities
 # Clean up common temporary files and folders in the current directory
 
+
 ITEMS=(
 # General
 logs
@@ -18,6 +19,18 @@ build
 coverage
 .coverage
 *.sqlite*
+packages
+*.zip
+*.tar
+*.tar.gz
+*.tar.bz2
+*.tar.xz
+*.tgz
+*.tbz2
+*.txz
+*.rar
+*.7z
+*.gz
 
 # Nodejs
 node_modules
@@ -38,6 +51,7 @@ jspm_packages
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
+.webpack
 
 # Python
 __pycache__
@@ -73,12 +87,41 @@ lib64
 *.so
 *.i
 *.ii
+*.obj
+*.dylib
+*.dll
+*.exe
+*.app
 
-packages
+# Go
 vendor
+Godeps
+go.work
+*.exe-*
+
+# Security
+*.prv
+*.key
+*.pem
+*.p12
+*.crt
+*.p8
+*.pkcs12
+
 
 # OS Specific
 .DS_Store
+.DS_Store?
+Thumbs.db
+.AppleDouble
+.LSOverride
+Icon
+.Trashes
+ehthumbs.db
+._*
+.TemporaryItems
+.Spotlight-V100
+.VolumeIcon.icns
 )
 
 # Remove items
