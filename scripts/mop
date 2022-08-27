@@ -4,6 +4,14 @@
 # Clean up common temporary files and folders in the current directory
 
 
+# Check for help
+if [ "$1" = "-h" ] || [ "$1" = "--help" ]; then
+    echo "Clean up common temporary files and folders in the current directory"
+    echo "Usage: mop"
+    exit 0
+fi
+
+
 ITEMS=(
 # General
 logs
