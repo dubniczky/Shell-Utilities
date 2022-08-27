@@ -1,0 +1,24 @@
+#!/bin/bash
+
+# https://github.com/dubniczky/Shell-Utilities
+# Search for each git repository in current folder and push the commits
+
+
+# Find repositories
+REPOSITORIES=$(find . -name .git -type d -prune -exec dirname {} \;)
+echo "Found $( echo $REPOSITORIES | wc -w | xargs echo ) repositories"
+echo $REPOSITORIES
+
+# Push repositories
+repos=(`echo ${REPOSITORIES}`)
+for repo in "${repos[@]}"; do
+    echo -n "Pushing $repo"
+    cd $repo
+    git push >/dev/null 2>/dev/null
+    if [ $? -eq 0 ]; then
+        echo " - success"
+    else
+        echo " - failed"
+    fi
+    cd ..
+done
