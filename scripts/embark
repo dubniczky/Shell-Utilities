@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # https://github.com/dubniczky/Shell-Utilities
-# Build the container in the current directory from dockerfile, then quickstart it
+# Build the local Dockerfile and quick run it with customizable parameters
 
 
 DEFAULT_NAME="tempimage:latest"
@@ -9,13 +9,17 @@ DEFAULT_PORT="8000:8000"
 
 # Check for help
 if [ "$1" = "-h" ] || [ "$1" = "--help" ]; then
-    echo "Build the container in the current directory from dockerfile, then quickstart it."
-    echo "Usage: embark [container_name?] [ports?] [args...]"
-    echo "  container_name: The name and tag of the image to build. Default: $DEFAULT_NAME"
-    echo "  ports: The source and destination ports to expose. Default: $DEFAULT_PORT"
-    echo "  args: All subsequent parameters will be passed to the docker run command."
+    echo "Build the local Dockerfile and quick run it with customizable parameters"
     echo ""
-    echo "Example: embark myimage:latest 8080:80 -d"
+    echo "Usage: embark [container_name?] [ports?] [args...]"
+    echo "   container_name: The name and tag of the image to build. Default: $DEFAULT_NAME"
+    echo "   ports: The source and destination ports to expose. Default: $DEFAULT_PORT"
+    echo "   args: All subsequent parameters will be passed to the docker run command."
+    echo ""
+    echo "Examples:"
+    echo "   embark - build and run dockerfile with default name and port"
+    echo "   embark myimage:latest 80:80 - build and run dockerfile with custom name"
+    echo "   embark myimage:latest 80:80 -d - build and run dockerfile with custom name and daemon mode"
     exit 0
 fi
 
