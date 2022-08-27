@@ -4,21 +4,32 @@
 # Search for each git repository in current folder and push the commits
 
 
+c_red='\033[0;31m'
+c_green='\033[0;32m'
+c_none='\033[0m'
+start_time=$(date +%s)
+
 # Find repositories
-REPOSITORIES=$(find . -name .git -type d -prune -exec dirname {} \;)
-echo "Found $( echo $REPOSITORIES | wc -w | xargs echo ) repositories"
-echo $REPOSITORIES
+repo_paths=$(find . -name .git -type d -prune -exec dirname {} \;)
+echo "Found $( echo $repo_paths | wc -w | xargs echo ) repositories:"
+#echo $repo_paths
 
 # Push repositories
-repos=(`echo ${REPOSITORIES}`)
+repos=(`echo ${repo_paths}`)
+pwd=$(pwd)
 for repo in "${repos[@]}"; do
-    echo -n "Pushing $repo"
+    echo -n " | Pushing $(echo $repo | sed "s|./||") "
     cd $repo
     git push >/dev/null 2>/dev/null
     if [ $? -eq 0 ]; then
-        echo " - success"
+        echo -e " - ${c_green}success${c_none}"
     else
-        echo " - failed"
+        echo -e " - ${c_red}failed${c_none}"
     fi
-    cd ..
+    cd $pwd
 done
+
+# Display performance
+end_time=$(date +%s)
+runtime=$((end_time-start_time))
+echo "Done in ${runtime}s"
