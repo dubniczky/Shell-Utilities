@@ -4,16 +4,16 @@
 # Build the local Dockerfile and quick run it with customizable parameters
 
 
-DEFAULT_NAME="tempimage:latest"
-DEFAULT_PORT="8000:8000"
+name="tempimage:latest"
+port="8000:8000"
 
 # Check for help
 if [ "$1" = "-h" ] || [ "$1" = "--help" ]; then
     echo "Build the local Dockerfile and quick run it with customizable parameters"
     echo ""
     echo "Usage: embark [container_name?] [ports?] [args...]"
-    echo "   container_name: The name and tag of the image to build. Default: $DEFAULT_NAME"
-    echo "   ports: The source and destination ports to expose. Default: $DEFAULT_PORT"
+    echo "   container_name: The name and tag of the image to build. Default: user/folder"
+    echo "   ports: The source and destination ports to expose. Default: $port"
     echo "   args: All subsequent parameters will be passed to the docker run command."
     echo ""
     echo "Examples:"
@@ -23,25 +23,30 @@ if [ "$1" = "-h" ] || [ "$1" = "--help" ]; then
     exit 0
 fi
 
+# Assemble default container name
+directory=${PWD##*/}
+user=$(whoami)
+name="$user/$directory:latest"
+
 # Assign parameters
 if [ ! -z $1 ]; then
-    DEFAULT_NAME=$1
+    name=$1
 fi
 
 if [ ! -z $2 ]; then
-    DEFAULT_PORT=$2
+    port=$2
 fi
 
-echo "Container name: $DEFAULT_NAME"
-echo "Container port: $DEFAULT_PORT"
+echo "Container name: $name"
+echo "Container port: $port"
 
 # Build the container
 if [ -f "Dockerfile" ]; then
-    docker build -t $DEFAULT_NAME .
+    docker build -t $name .
 else
     echo "No Dockerfile found in current directory."
     exit 1
 fi
 
 # Run the container
-docker run -p $DEFAULT_PORT --rm "${@:3}" $DEFAULT_NAME
+docker run -p $port --rm "${@:3}" $name
