@@ -61,6 +61,8 @@ jspm_packages
 .yarn/install-state.gz
 .pnp.*
 .webpack
+.expo
+__generated__
 
 # Python
 __pycache__
