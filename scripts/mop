@@ -6,13 +6,14 @@
 
 # Check for help
 if [ "$1" = "-h" ] || [ "$1" = "--help" ]; then
-    echo "Clean up common temporary files and folders in the current directory"
+    echo "Clean up common temporary files and folders in the current directory."
+    echo "Removes binaries, logs, archives, build files, other temporaries, and anything ingnored by git."
     echo "Usage: mop"
     exit 0
 fi
 
 
-ITEMS=(
+globs=(
 # General
 logs
 *.log
@@ -133,14 +134,23 @@ ehthumbs.db
 )
 
 # Remove items
-REMOVED_ITEMS=$(rm -rfv ${ITEMS[@]} 2> /dev/null)
-#echo $REMOVED_ITEMS
+removed_items=$(rm -rfv ${globs[@]} 2> /dev/null)
+#echo $removed_items
 
 # Count removed items
-REMOVED_COUNT="0"
-if [ ! -z "$REMOVED_ITEMS" ]; then
-    REMOVED_COUNT=$(echo "$REMOVED_ITEMS" | wc -l | xargs echo)
+count="0"
+if [ ! -z "$removed_items" ]; then
+    count=$(echo "$removed_items" | wc -l | xargs echo)
+fi
+
+# Remove other items ignored by git
+if [ ! -z "$(command -v git)" ] && [ -f ".gitignore" ]; then
+    git_items=$(git clean -fdX 2> /dev/null)
+    if [ ! -z "$git_items" ]; then
+        git_count=$(echo "$git_items" | wc -l | xargs echo)
+        count=$((count+git_count))
+    fi
 fi
 
 # Print summary
-echo "Removed $REMOVED_COUNT items."
+echo "Removed $count items."
