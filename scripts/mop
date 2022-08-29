@@ -8,6 +8,7 @@
 if [ "$1" = "-h" ] || [ "$1" = "--help" ]; then
     echo "Clean up common temporary files and folders in the current directory."
     echo "Removes binaries, logs, archives, build files, other temporaries, and anything ingnored by git."
+    echo "It is recommended to run this in a git project, to avoid deleting files that are not tracked."
     echo "Usage: mop"
     exit 0
 fi
