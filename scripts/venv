@@ -29,4 +29,8 @@ else
     echo "Created requirements file: $VENV_DEPS"
 fi
 
+# Show instructions
 echo "Environment loaded!"
+echo ""
+echo "Activate:"
+echo ". $VENV_NAME/bin/activate"
