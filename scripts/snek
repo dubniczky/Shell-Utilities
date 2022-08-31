@@ -24,17 +24,18 @@ fi
 # Locate python binary
 pybin_loc="$(command -v python$1)"
 if [ -z $pybin_loc ]; then
-    echo "python$1 binary not found."
+    echo "ERROR: python$1 binary not found."
     exit 1
 fi
 
 # Locate pip binary
 pipbin_loc="$(command -v pip$1)"
 if [ -z $pipbin_loc ]; then
-    echo "pip$1 binary not found."
-    exit 1
+    echo "WARNING: pip$1 binary not found, could not switch versions."
 fi
 
 # Overwrite soft links
 ln -sf $pybin_loc /usr/local/bin/python
-ln -sf $pipbin_loc /usr/local/bin/pip
+if [ ! -z $pipbin_loc ]; then
+    ln -sf $pipbin_loc /usr/local/bin/pip
+fi
