@@ -5,10 +5,10 @@
 
 
 # Check for help
-if [ "$1" = "-h" ] || [ "$1" = "--help" ]; then
-    echo "Activate given python version as the python command, or show currently active version"
+if [ "$1" = "-h" ] || [ "$1" = "--help" ] || [ "$1" = "help" ]; then
+    echo "Activate given python version as the python and pip commands, or show currently active version"
     echo "Usage: snek [version?]"
-    echo "   version: The major and minor version numbers of python to activate"
+    echo "   version: Major dot minor version numbers of python to activate"
     echo "Examples:"
     echo "   snek - show current version"
     echo "   snek 3.10 - switch to 3.10 if installed"
@@ -21,12 +21,20 @@ if [ "$#" -ne 1 ]; then
     exit 0
 fi
 
-# Locate binary
-BIN_LOC="$(command -v python$1)"
-if [ -z $BIN_LOC ]; then
+# Locate python binary
+pybin_loc="$(command -v python$1)"
+if [ -z $pybin_loc ]; then
     echo "python$1 binary not found."
     exit 1
 fi
 
-# Overwrite soft link
-ln -sf $BIN_LOC /usr/local/bin/python
+# Locate pip binary
+pipbin_loc="$(command -v pip$1)"
+if [ -z $pipbin_loc ]; then
+    echo "pip$1 binary not found."
+    exit 1
+fi
+
+# Overwrite soft links
+ln -sf $pybin_loc /usr/local/bin/python
+ln -sf $pipbin_loc /usr/local/bin/pip
