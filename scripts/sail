@@ -25,19 +25,15 @@ else
 fi
 
 # Run mode
-if [ "$1" = "start" ]; then
+if [ "$1" = "up" ]; then
     echo "Starting Docker..."
     $start_command
-elif [ "$1" = "stop" ]; then
+elif [ "$1" = "down" ]; then
     echo "Docker Stopped."
     $stop_command
     exit 0
-elif [ "$1" = "restart" ]; then
-    echo "Restarting Docker..."
-    $stop_command
-    $start_command
 else
-    echo "Usage: docker [start|stop|restart]"
+    echo "Usage: docker [up|down]"
     exit 0
 fi
 
