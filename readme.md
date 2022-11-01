@@ -47,6 +47,8 @@ chmod +x install.sh && ./install.sh
 |`mop`|[source](./scripts/mop)|`files`|Clean up common temporary files and folders in the current directory|
 |`pubs`|[source](./scripts/pubs)|`ssh`|An utility that prints the public ssh key of the current user or the specified user|
 |`push`|[source](./scripts/push)|`git`|Search for each git repository in current folder and push the commits|
+|`bash16`|[source](./scripts/bash16.sh)|`random`|Generate cryptographically secure random base16 strings|
+|`bash64`|[source](./scripts/bash64.sh)|`random`|Generate cryptographically secure random base64 strings|
 |`sail`|[source](./scripts/sail)|`docker`|Manage docker daemon|
 |`sink`|[source](./scripts/sink)|`docker`|Kill all currently running docker containers|
 |`snek`|[source](./scripts/snek)|`python`|Activate given python version as the python command|
