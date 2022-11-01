@@ -3,6 +3,7 @@
 # https://github.com/dubniczky/Shell-Utilities
 # Initialize a python virtual environment and install packages
 
+VENV_LIB="venv"
 VENV_NAME=".venv"
 VENV_DEPS="requirements.txt"
 PYTHON_VERSION="3"
@@ -25,7 +26,7 @@ fi
 
 # Check python installation and create venv
 echo "Creating virtual environment... ($VENV_NAME/)"
-python$PYTHON_VERSION -m venv "$VENV_NAME"
+python$PYTHON_VERSION -m $VENV_LIB "$VENV_NAME"
 if [ $? -ne 0 ]; then
     echo "Failed to create virtual environment."
     exit 1
