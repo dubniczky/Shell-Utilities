@@ -64,6 +64,7 @@ chmod +x install.sh && ./install.sh
 |`bash16`|[source](./scripts/bash16.sh)|`random`|Generate cryptographically secure random base16 strings|
 |`bash64`|[source](./scripts/bash64.sh)|`random`|Generate cryptographically secure random base64 strings|
 |`sail`|[source](./scripts/sail.sh)|`docker`|Manage docker daemon|
+|`shtart`|[source](./scripts/shtart.sh)|`bash`|List bash startup scripts|
 |`sink`|[source](./scripts/sink.sh)|`docker`|Kill all currently running docker containers|
 |`snek`|[source](./scripts/snek.sh)|`python`|Activate given python version as the python command|
 |`venv`|[source](./scripts/venv.sh)|`python`|Initialize a python virtual environment and install packages|
