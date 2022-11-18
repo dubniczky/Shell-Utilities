@@ -60,6 +60,7 @@ chmod +x install.sh && ./install.sh
 |`gitid`|[source](./scripts/gitid.sh)|`git`|Change the commit identity of the current git repository|
 |`mop`|[source](./scripts/mop.sh)|`files`|Clean up common temporary files and folders in the current directory|
 |`origin`|[source](./scripts/origin.sh)|`git`|Quick download a git repository to a local projects folder by name|
+|`packup`|[source](./scripts/packup.sh)|`package`|Update various packages and applications from multiple sources|
 |`pubs`|[source](./scripts/pubs.sh)|`ssh`|An utility that prints the public ssh key of the current user or the specified user|
 |`push`|[source](./scripts/push.sh)|`git`|Search for each git repository in current folder and push the commits|
 |`bash16`|[source](./scripts/bash16.sh)|`random`|Generate cryptographically secure random base16 strings|
