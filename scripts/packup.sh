@@ -7,16 +7,14 @@
 # Homebrew
 if [ -x "$(command -v brew)" ]; then
     echo "Updating Homebrew..."
-    brew update
-    brew upgrade
+    brew upgrade --auto-update
     brew cleanup
 fi
 
 # Homebrew Intel Edition
 if [ -x "$(command -v ibrew)" ]; then
     echo "Updating iHomebrew..."
-    ibrew update
-    ibrew upgrade
+    ibrew upgrade --auto-update
     ibrew cleanup
 fi
 
