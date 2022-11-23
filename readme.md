@@ -2,21 +2,15 @@
 
 Collection of utility shell scripts to automate often-used command combinations.
 
-## Support ❤️
-
-If you find the project useful, please consider supporting, or contributing.
-
-[!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://www.buymeacoffee.com/dubniczky)
-
 ## Details
 
 The basic Linux environment comes with a wide arsenal of utility applications and commands to use. They are usually made for a specific task with a lot of options. This makes them versatile, but sometimes uncomfortable to use repeatedly if you are looking for a simple interface.
 
-This project expands on the built-in functionalities of these modern Linux (and mac) systems to provide simple or a bit more complex functionalities in a simple format.
+This project expands on the built-in functionalities of these modern Linux (and mac) systems to provide a bit more complex functionalities in a simple format.
 
-### Rules:
+### Considerations
 
-- **Independent**: scripts must be compatible with modern Linux and Mac systems through `bash`/`zsh`,
+- **Independent**: scripts must be compatible with modern Linux and Mac systems with the use of `bash`,
 - **Standalone**: scripts can run without any others in this library,
 - **Autonomous**: scripts must be non-interactable, meaning the only settings are passed with the use parameters and don't require any stdin,
 - **Concise**: scripts must produce minimal output text, if the command is only successful or unsuccessful, it must be communicated with an error code,
