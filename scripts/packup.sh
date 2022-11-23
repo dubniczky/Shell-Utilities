@@ -34,6 +34,5 @@ fi
 # Tldr help database
 if [ -x "$(command -v tldr)" ]; then
     echo "Updating TLDR help database..."
-    pip install --upgrade pip
-    pip list --outdated --format=freeze | grep -v '^\-e' | cut -d = -f 1 | xargs -n1 $PM_PYTHON install -U
+    tldr --update
 fi
