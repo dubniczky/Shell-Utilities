@@ -40,7 +40,7 @@ pwd=$(pwd)
 for repo in "${repos[@]}"; do
     echo -n " | Pushing $(echo $repo | sed "s|./||") "
     cd $repo
-    git push >/dev/null 2>/dev/null
+    git push --all origin >/dev/null 2>/dev/null
     if [ $? -eq 0 ]; then
         echo -e " - ${c_green}success${c_none}"
     else
