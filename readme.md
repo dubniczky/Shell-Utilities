@@ -56,7 +56,8 @@ chmod +x install.sh && ./install.sh
 |`origin`|[source](./scripts/origin.sh)|`git`|Quick download a git repository to a local projects folder by name|
 |`packup`|[source](./scripts/packup.sh)|`package`|Update various packages and applications from multiple sources|
 |`pubs`|[source](./scripts/pubs.sh)|`ssh`|An utility that prints the public ssh key of the current user or the specified user|
-|`push`|[source](./scripts/push.sh)|`git`|Search for each git repository in current folder and push the commits|
+|`pull`|[source](./scripts/pull.sh)|`git`|Search for each git repository in current folder and pull the changes and tags|
+|`push`|[source](./scripts/push.sh)|`git`|Search for each git repository in current folder and push the commits and tags|
 |`bash16`|[source](./scripts/bash16.sh)|`random`|Generate cryptographically secure random base16 strings|
 |`bash64`|[source](./scripts/bash64.sh)|`random`|Generate cryptographically secure random base64 strings|
 |`sail`|[source](./scripts/sail.sh)|`docker`|Manage docker daemon|
